@@ -1,17 +1,176 @@
 ML Concept Project - Hearth Disease Risk Prediction Model
 Developed on 4/25/2025 by Shane Coy
+Last Updated: 5/20/2025
 
 
-                                    /////////// Project Summary /////////////      
-                                    
-Mission Statement: Gather modern data and utilyze scikit-learn +  ML modeling to access a patients heart disease risk. You can preprocess the data, train a classifier (e.g., Random Forest or Logistic Regression), and evaluate its performance. A unique angle could be to implement feature importance analysis to identify the most significant risk factors and visualize them for a healthcare audience.
-Field Overview: Healthcare is a trending field for machine learning due to the increasing availability of medical data and the need for predictive analytics to improve patient outcomes.
-Dataset: Use the UCI Heart Disease Dataset, which contains patient data such as age, sex, cholesterol levels, blood pressure, and whether the patient has heart disease. This dataset is widely available and commonly used for classification tasks.
-Classification: Predict a binary outcome (heart disease: yes/no).
+                                    /////////// Project Summary /////////////    
 
-Feature Engineering: Handle missing values, encode categorical variables, and scale numerical features.
+Mission Statement:
 
-Model Evaluation: Use metrics like accuracy, precision, recall, and ROC-AUC.
+The goal of this project is to gather modern data and utilize scikit-learn and machine learning modeling to 
+assess a patient's heart disease risk. This involves preprocessing the data, 
+training a classifier (e.g., Random Forest or Logistic Regression), and evaluating its performance. 
+A unique angle is the implementation of feature importance analysis to identify the most significant 
+risk factors and visualize them for a healthcare audience.
 
-Feature Importance: Analyze which features (e.g., cholesterol, age) contribute most to predictions.
 
+Field Overview:
+
+Healthcare is a trending field for machine learning due to the increasing availability of medical data and the need
+for predictive analytics to improve patient outcomes. Predictive models like this one can assist doctors in identifying
+at-risk patients early, enabling timely interventions.
+
+
+Dataset:
+
+This project uses the UCI Heart Disease Dataset, which contains patient data suchas age, sex, cholesterol levels, 
+blood pressure, and whether the patient has heart disease. The dataset includes 13 features and a binary target 
+(heart disease: yes/no), making it ideal for classification tasks.
+
+Download the UCI Heart Disease dataset from here: 
+https://archive.ics.uci.edu/dataset/45/heart+disease
+
+
+Classification:
+
+The model predicts a binary outcome (heart disease: yes/no) and outputs a probability (0-100%) 
+of heart disease risk, which is presented to the user via interface.
+
+
+Feature Engineering:
+
+Handle Missing Values: Impute or remove missing data as needed.
+Encode Categorical Variables: Convert categorical features (e.g., sex, cp) into numerical values.
+Scale Numerical Features: Use StandardScaler to normalize features like age and chol for better model performance.
+
+
+Model Evaluation:
+
+The model is evaluated using the following metrics:
+Accuracy: Measures overall correctness of predictions.
+Precision, Recall, F1-Score: Assesses performance on imbalanced classes.
+ROC-AUC: Evaluates the model's ability to distinguish between classes.
+Feature Importance
+
+Feature importance analysis is performed to identify which features (e.g., cholesterol, age) contribute 
+most to heart disease predictions. Results are visualized using bar plots for a healthcare audience 
+to interpret key risk factors.
+
+
+Project Structure:
+
+heart_disease.csv: The UCI Heart Disease dataset (not included; download from the link above).
+train_model.py: Script to preprocess data, train the model, and save it.
+app.py: Flask app for the web interface to input patient data and get predictions.
+templates/index.html: HTML template for the Flask web interface.
+heart_disease_model.pkl: Saved logistic regression model.
+scaler.pkl: Saved scaler for feature preprocessing.
+README.md: This file.
+
+
+//////////// Installation ///////////
+
+Prerequisites -
+Python 3.8+
+Git (to clone the repository)
+A web browser to access the interface
+
+
+Steps -
+
+Clone the Repository:
+git clone https://github.com/shane9coy/eventplanner.git
+cd eventplanner
+
+Install Dependencies: Install the required Python packages using pip:
+
+pip install -r requirements.txt
+
+OR, install manually:
+
+pip install flask pandas numpy scikit-learn joblib matplotlib
+
+
+Step 2: Run in terminal
+python heart_disease_predictor.py
+
+Enter a patient id# and the 13 patient parameters (e.g., age, cholesterol, etc.)
+to get the predicted likelihood of heart disease (0-100%).
+
+Example Input -
+Age: 55
+Sex: 1 (male)
+Chest Pain Type: 2
+Resting BP: 140
+Cholesterol: 250
+Fasting Blood Sugar: 0
+Resting ECG: 1
+Max Heart Rate: 150
+Exercise Angina: 1
+Oldpeak: 2.3
+Slope: 1
+Major Vessels: 1
+Thalassemia: 3
+
+Output: The model might predict a likelihood of 82.5%, indicating a high risk of heart disease.
+
+
+Results -
+
+Full Model Performance on Test Set (Optimized Model):
+Accuracy: 0.90
+Precision: 0.93
+Recall: 0.88
+ROC-AUC: 0.90
+
+Feature Importance :
+(see feature_importance.png) 
+       Feature  Importance
+12          ca    0.128825
+13        thal    0.127718
+3           cp    0.113823
+10     oldpeak    0.105940
+1          age    0.083799
+8      thalach    0.082224
+5         chol    0.067135
+9        exang    0.063428
+0   Patient ID    0.059754
+4     trestbps    0.055688
+11       slope    0.053115
+2          sex    0.036113
+7      restecg    0.016531
+6          fbs    0.005906
+
+Feature Importance:
+
+Top features contributing to heart disease prediction:
+thalach (maximum heart rate): High impact; lower rates often indicate risk.
+cp (chest pain type): Strong indicator, especially for typical angina.
+ca (number of major vessels): More vessels colored often correlates with higher risk.
+
+
+Model Enhancements:
+
+Experiment with other classifiers like Random Forest or XGBoost for potentially higher accuracy.
+Use cross-validation to ensure robust performance.
+
+Interface:
+
+Add input validation to ensure realistic values (e.g., cholesterol between 100-400 mg/dl).
+Include descriptions for each parameter to guide users.
+
+
+Contributing: 
+Contributions are welcome! Please fork the repository and create a pull request with your changes.ç
+Ensure your code follows PEP 8 style guidelines and includes comments for clarity.
+
+License:
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Acknowledgements:
+UCI Machine Learning Repository for providing the Heart Disease dataset.
+Scikit-learn for the machine learning tools.
+
+
+Contact:
+For questions or feedback, contact Shane Coy at scoyrealty@gmail.com.
