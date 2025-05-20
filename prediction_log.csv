@@ -1,0 +1,2 @@
+Timestamp,Patient_ID,age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,Prediction,Probability
+2025-05-13 13:54:42.797481,7783325,81.0,1.0,1.0,120.0,200.0,0.0,0.0,143.0,1.0,5.0,3.0,2.0,6.0,1,0.6841369047619048
