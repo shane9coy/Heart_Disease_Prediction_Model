@@ -21,14 +21,30 @@ for predictive analytics to improve patient outcomes. Predictive models like thi
 at-risk patients early, enabling timely interventions.
 
 
+
 Dataset:
+
+Download the UCI Heart Disease dataset from here: 
+https://archive.ics.uci.edu/dataset/45/heart+disease
 
 This project uses the UCI Heart Disease Dataset, which contains patient data suchas age, sex, cholesterol levels, 
 blood pressure, and whether the patient has heart disease. The dataset includes 13 features and a binary target 
 (heart disease: yes/no), making it ideal for classification tasks.
 
-Download the UCI Heart Disease dataset from here: 
-https://archive.ics.uci.edu/dataset/45/heart+disease
+FEATURE_RANGES = {
+    'age': (20, 100),           # Age in years
+    'sex': (0, 1),              # 0 = female, 1 = male
+    'cp': (1, 4),               # Chest pain type (1-4)
+    'trestbps': (80, 200),      # Resting blood pressure (mm Hg)
+    'chol': (100, 600),         # Serum cholesterol (mg/dl)
+    'fbs': (0, 1),              # Fasting blood sugar > 120 mg/dl (0 = false, 1 = true)
+    'restecg': (0, 2),          # Resting ECG results (0-2)
+    'thalach': (60, 220),       # Maximum heart rate achieved
+    'exang': (0, 1),            # Exercise-induced angina (0 = no, 1 = yes)
+    'oldpeak': (0, 6.2),        # ST depression induced by exercise
+    'slope': (1, 3),            # Slope of the peak exercise ST segment (1-3)
+    'ca': (0, 3),               # Number of major vessels (0-3)
+    'thal': (3, 7)              # Thalium stress test result (3 = normal, 6 = fixed defect, 7 = reversible defect)
 
 
 Classification:
